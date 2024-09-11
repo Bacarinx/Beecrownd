@@ -18,7 +18,6 @@ int partition(int *arr, int left, int rigth) {
             left++;
             rigth--;
         }
-
     }
 
     return left;
