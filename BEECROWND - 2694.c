@@ -7,17 +7,19 @@ void swap(int *arr, int low, int high) {
 }
 
 int partition(int *arr, int left, int rigth) {
-    int pivot = (arr[left] + arr[rigth] + arr[(left + rigth) / 2]) / 3; // pegando a média entre 3 valores: inicio, meio, fim
+    int pivot = arr[(left + rigth) /2]; // pegando o valor do meio
 
-    while(left < rigth) {
-        while(left < rigth && arr[left] <= pivot)
+    while(left <= rigth) {
+        while(arr[left] < pivot) left++;
+        while(arr[rigth] > pivot) rigth--;
+
+        if(left <= rigth) {
+            swap(arr, left, rigth);
             left++;
-
-        while(left < rigth && arr[rigth] > pivot) {
             rigth--;
         }
-        swap(arr, left, rigth);
     }
+
     return left;
 }
 
@@ -61,8 +63,8 @@ int main() {
         imparPositive[i] = impar[i];
     }
 
-    quickSort(parPositive, 0, iPar);
-    quickSort(imparPositive, 0, iImpar);
+    quickSort(parPositive, 0, iPar - 1);
+    quickSort(imparPositive, 0, iImpar - 1);
 
     for(i = 0; i < iPar; i++) {
         printf("%i\n", parPositive[i]);
