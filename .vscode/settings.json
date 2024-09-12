@@ -1,0 +1,8 @@
+{
+  "files.associations": {
+    ".env.*": "dotenv",
+    ".prettierrc": "json",
+    "*.css": "css",
+    "BEECROWND - 1581.C": "cpp"
+  }
+}
